@@ -3,7 +3,7 @@
 import Main from "../layouts/Main.astro";
 const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 ---
-<Main><!-- This content replaces layout's slot element -->
+<Main><!-- Content between the Main tags goes into Main's slot -->
 	<div class="profile">
 		<img 
 		alt="Frau Katerina's website"  
@@ -14,7 +14,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 		/>
 		<div class="profile__details">
 			<h1>Frau Katerina</h1>
-			<h2>VP of Engine</h2>
+			<h2>VP of Engineering at Goooogle</h2>
 			<p>
 				Helping developers be excellent and suceed at building scalable products.
 			</p>
@@ -37,6 +37,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 
 	.profile__details > h1 {
 		margin-top: 0;
+		color: red;
 	}
 
 	.profile__picture {
