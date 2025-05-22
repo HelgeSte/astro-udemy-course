@@ -2,6 +2,9 @@
 // componenet script 
 import Main from "../layouts/Main.astro";
 const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
+
+console.log("Hello World!"); /* Doesn't show in the browser's console window. Shows in the terminal when 
+											the page is run / refresher, or when the project is built */
 ---
 <Main><!-- This content replaces layout's slot element -->
 	<div class="profile">
@@ -44,3 +47,7 @@ const profilePicture = "https://i.imgur.com/JPGFE75.jpg";
 		margin: 0 2rem 1rem 0;
 	}
 </style>
+
+<script>
+	//console.log("Hello World!"); /* shows in the browsers console window */
+</script>

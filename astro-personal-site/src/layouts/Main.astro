@@ -1,4 +1,6 @@
 ---
+import Footer from "../components/Footer.astro";
+import NavigationBar from "../components/NavigationBar.astro";
 import "../styles/global.css";
 ---
 <html lang="en">
@@ -15,7 +17,9 @@ import "../styles/global.css";
 	</head>
 	<body>
         <main>
+			<NavigationBar />
             <slot /><!-- What's between the page's Main tags goes here -->
+			<Footer />
         </main>
 	</body>
 	</html>
