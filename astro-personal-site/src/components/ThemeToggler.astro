@@ -34,6 +34,14 @@
     .sun {
         fill: transparent;
     }
+
+    :global(.dark) .sun { /* if a parent element got a dark class */
+        fill: black;
+    }
+
+    :global(.dark) .moon {
+        fill: transparent;
+    }
     /* 
     CSS transitions allows you to change property values smoothly, over a given duration.
 
@@ -48,3 +56,17 @@
     The following example shows some of the different speed curves that can be used:
     */
 </style>
+
+<script>
+    const DARK_THEME_CLASS = "dark"
+
+    // Grab the toggle
+    const toggle = document.querySelector("button")
+    const rootEl = document.documentElement
+
+    if(toggle) {
+        toggle.addEventListener("click", () => {
+            rootEl.classList.toggle(DARK_THEME_CLASS);
+        });
+    }
+</script>
