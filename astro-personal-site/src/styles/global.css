@@ -9,7 +9,7 @@ html {
 html.dark {
     --background: black;
     --grey-200: #eaeaea;
-    --grey-400: #444444;
+    --grey-400: #acacac;
     --grey-600: #ffffff;
     --grey-900: #fafafa;
 }
@@ -18,7 +18,7 @@ body {
     font-family: "Inter", sans-serif;
     padding: 0 0.5rem;
 
-    color: var(--grey);
+    color: var(--grey-600);
     background-color: var(--background);
 }
 
