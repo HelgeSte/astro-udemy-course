@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "astro": "^5.7.14",
-    "astro-personal-site": "file:"
+    "astro-personal-site": "file:",
+    "title-case": "^4.3.2"
   }
 }

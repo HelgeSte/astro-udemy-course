@@ -59,6 +59,7 @@
 </style>
 
 <script> // This section supports TypeScript. This section runs on the client.
+    import { titleCase } from "title-case";
     const DARK_THEME_CLASS = "dark";
     const COLOUR_MODE = "COLOUR_MODE";
     const LIGHT_THEME = "LIGHT";
@@ -84,6 +85,8 @@
 
     const initialColourMode = getInitialColourMode() // get saved, preferred or default colour mode
 
+    const title = titleCase(`The theme of our user is ${initialColourMode}`); // Title case, as in book, games and movie titles
+    alert(title);
     const setInitialColourMode = (mode: string) => {
         if(mode === LIGHT_THEME){
             rootEl.classList.remove(DARK_THEME_CLASS)
