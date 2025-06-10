@@ -1,0 +1,23 @@
+Q: 
+Which of the following is a valid way to handle button clicks? 
+A: 
+const button = document.querySelector("button);
+
+button.addEventListener("click", () => {
+    // do something
+});
+---
+How to make a selector global? (for a selector for h1 in the Main.astro file)
+<style>
+		:global(h1 ) { /* leverage a global select */
+			/*color: red;*/
+		}
+</style>
+---
+Q: 
+Which of the following are true with respect to client-side scripts added via a <script> in Astro components?
+A:
+All of the above: we can import other scripts or import packages, fully supports Typescript, inserted into head 
+by default. If a single Astro component with a <script> is used multiple times on a page, the <script> is
+processed and only used once.
+

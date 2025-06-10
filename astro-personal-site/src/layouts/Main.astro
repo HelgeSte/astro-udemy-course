@@ -13,7 +13,44 @@ import "../styles/global.css";
 		<title>Astro</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+	
+		<script is:inline>
+			/* So this script is not going to automatically get added to the head of our page by default.
+			   So we're the ones that's adding it in the head of our layout component.*/
+			const DARK_THEME_CLASS = "dark";
+			const COLOUR_MODE = "COLOUR_MODE";
+			const LIGHT_THEME = "LIGHT";
+			const DARK_THEME = "DARK";
+
+			const rootEl = document.documentElement; 
+
+			const getInitialColourMode = () => {
+				const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
+
+				if(previouslySavedColourMode){
+					return previouslySavedColourMode;
+				}
+
+				if(window.matchMedia("(prefers-color-scheme: dark").matches){ // from browser or OS
+					return DARK_THEME;
+				}
+
+				return LIGHT_THEME; // default
+			};
+
+			const initialColourMode = getInitialColourMode() // get saved, preferred or default colour mode
+
+			const setInitialColourMode = (mode) => { // removed :string from "(mode: string)" because TS is not supported
+				if(mode === LIGHT_THEME){
+					rootEl.classList.remove(DARK_THEME_CLASS)
+				} else {
+					rootEl.classList.add(DARK_THEME_CLASS)
+				}
+			};
+
+			setInitialColourMode(initialColourMode); // without this, the chosen colour isn't used when refreshing
+		</script>
 	</head>
 	<body>
         <main>
@@ -21,7 +58,7 @@ import "../styles/global.css";
             <slot /><!-- What's between the page's Main tags goes here -->
 			<Footer />
         </main>
-	</body
+	</body>
 	</html>
 
 	<style>

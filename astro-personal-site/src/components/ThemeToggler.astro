@@ -58,8 +58,19 @@
     The following example shows some of the different speed curves that can be used:*/
 </style>
 
+<script is:inline>
+    // Astro is not going to process inline scripts
+    // Don't import NPM
+    // Don't use TypeScripts
+    // We want this script to be used multiple times,
+    // since we wan't our page to start in the chosen theme
+</script>
+
 <script> // This section supports TypeScript. This section runs on the client.
     import { titleCase } from "title-case";
+    // Some of the functionality for the theme are copied or moved to a inline script section
+    // in the the Main.astro layout file, in order to enable the vars for the dark theme 
+    // before the browser starts drawing the page
     const DARK_THEME_CLASS = "dark";
     const COLOUR_MODE = "COLOUR_MODE";
     const LIGHT_THEME = "LIGHT";
@@ -68,34 +79,6 @@
     // Grab the toggle
     const toggle = document.querySelector("button"); // returns first Element that matches
     const rootEl = document.documentElement;    
-
-    const getInitialColourMode = () => {
-        const previouslySavedColourMode = window.localStorage.getItem(COLOUR_MODE);
-
-        if(previouslySavedColourMode){
-            return previouslySavedColourMode;
-        }
-
-        if(window.matchMedia("(prefers-color-scheme: dark").matches){ // from browser or OS
-            return DARK_THEME;
-        }
-
-        return LIGHT_THEME; // default
-    };
-
-    const initialColourMode = getInitialColourMode() // get saved, preferred or default colour mode
-
-    const title = titleCase(`The theme of our user is ${initialColourMode}`); // Title case, as in book, games and movie titles
-    alert(title);
-    const setInitialColourMode = (mode: string) => {
-        if(mode === LIGHT_THEME){
-            rootEl.classList.remove(DARK_THEME_CLASS)
-        } else {
-            rootEl.classList.add(DARK_THEME_CLASS)
-        }
-    };
-
-    setInitialColourMode(initialColourMode); // without this, the chosen colour isn't used when refreshing
 
     if(toggle) {
         toggle.addEventListener("click", () => {
@@ -108,10 +91,4 @@
             window.localStorage.setItem(COLOUR_MODE, colourMode);
         });
     }
-
-    /**
-     * {
-     *  COLOUR_MODE: "LIGHT" | "DARK"
-     * } --> localStorage
-     */
 </script>
