@@ -1,7 +1,9 @@
 ---
 // This section runs the server. // window.localStorage.getItem("value"); // Error, not run on client
 ---
-<button aria-label="Theme Toggler">
+<!--<button type="button">Click Me!</button>--><!-- This button will be used instead of the svg-button, if we use a global selector (document.querySelector("button")) 
+We're fixing this by using a data attribute-->
+<button aria-label="Theme Toggler" data-theme-toggler>
     <svg width="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path
       class="sun"
@@ -77,7 +79,7 @@
     const DARK_THEME = "DARK";
 
     // Grab the toggle
-    const toggle = document.querySelector("button"); // returns first Element that matches
+    const toggle = document.querySelector("[data-theme-toggler]"); // returns first Element that matches, so use a data-attribute insteaod of a global selector
     const rootEl = document.documentElement;    
 
     if(toggle) {
